@@ -112,6 +112,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+import os
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
