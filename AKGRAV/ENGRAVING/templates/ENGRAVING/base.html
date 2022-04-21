@@ -6,12 +6,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'ENGRAVING/css/main.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <header></header>
-    {% block content %}
+    <header></header> <!-- Дима -->
+    <div class="content">
+    {% block content %}  
+    <!-- Я с Кириллом -->
     {% endblock %}
-    <bottom></bottom>
+    </div>
+    <bottom></bottom> <!-- Максим -->
+    <script type="text/javascript" src="{% static 'ENGRAVING/js/three.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ENGRAVING/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ENGRAVING/js/meshes.js' %}"></script>
 </body>
 </html>
