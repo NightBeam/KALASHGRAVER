@@ -5,4 +5,51 @@
 <div class="3D-panel">
     <canvas id="canvasForModels"></canvas>
 </div>
+<script type="text/javascript" src="{% static 'ENGRAVING/js/three.js' %}"></script>
+<script type="text/javascript" src="{% static 'ENGRAVING/js/main.js' %}"></script>
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+    const renderer = new THREE.WebGLRenderer();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+    const scene = new THREE.Scene();
+    let Mesh;
+    let light;
+
+    function init() {
+        scene.background = new THREE.Color('black');
+        camera.position.set(0, 10, 20);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+    }
+
+    function setLight() {
+        light = new THREE.AmbientLight(0xffffff); // soft white light
+        scene.add(light);
+    }
+
+    function loadGLTF() {
+        let balloonLoader = new THREE.GLTFLoader();
+
+        balloonLoader.load('/static/ENGRAVING/models/engraving.gltf', (gltf) => {
+            Mesh = gltf.scene;
+            scene.add(Mesh);
+            Mesh.position.x = 0;
+            Mesh.position.y = 10;
+            Mesh.position.z = 15;
+        });
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        if (Mesh && Mesh.rotation) {
+            Mesh.rotation.y -= 0.005;
+        }
+        renderer.render(scene, camera);
+    }
+
+    init();
+    setLight();
+    loadGLTF();
+    animate();
+</script>
 {% endblock %}
