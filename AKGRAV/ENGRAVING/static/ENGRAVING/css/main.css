@@ -45,3 +45,29 @@ body{
 	background-color:#F8F9F9;
 }
 /*-----------------------------------*/
+
+.topHeader{
+	display: flex;
+	justify-content: space-between;
+	background-color: white;
+}
+.bottomHeader{
+	background-color: black;
+	height: 50px;
+}
+#Logo{
+	width:25%;
+}
+#BL1{
+	margin:30px 30px 30px 30px;
+	color:white;
+	background: #D81B1B;
+	background: linear-gradient(116.54deg, #EF0027 10.24%, #FF6C01 105.59%);
+	height: 50px;
+	border-radius: 5%;
+	padding-right: 15px;
+	padding-left: 15px;
+	/*"Proxima Nova", "Liberation Sans"*/
+	font-size: 20px;
+	font-family:monospace;
+}
