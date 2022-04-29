@@ -6,50 +6,61 @@
     <canvas id="canvasForModels"></canvas>
 </div>
 <script type="text/javascript" src="{% static 'ENGRAVING/js/three.js' %}"></script>
-<script type="text/javascript" src="{% static 'ENGRAVING/js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'ENGRAVING/js/OrbitControls.js' %}"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
 <script>
-    const renderer = new THREE.WebGLRenderer();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
-    const scene = new THREE.Scene();
-    let Mesh;
-    let light;
+"use strict";
+const loader = new THREE.GLTFLoader();
+const scene = new THREE.Scene();
 
-    function init() {
-        scene.background = new THREE.Color('black');
-        camera.position.set(0, 10, 20);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-    }
+var b = document.querySelector("#canvasForModels");
+const ratio = window.innerWidth / window.innerHeight
+const camera = new THREE.PerspectiveCamera( 75, ratio, 0.1, 1000 );
+var renderer = new THREE.WebGLRenderer({canvas:b});
+renderer.setClearColor(0x00E7E7E7)
 
-    function setLight() {
-        light = new THREE.AmbientLight(0xffffff); // soft white light
-        scene.add(light);
-    }
+const path = '{% static 'ENGRAVING/models/quadrocopter.gltf' %}';
 
-    function loadGLTF() {
-        let balloonLoader = new THREE.GLTFLoader();
+camera.lookAt(10,0,0)
+renderer.setSize( window.innerWidth, window.innerHeight );
 
-        balloonLoader.load('/static/ENGRAVING/models/engraving.gltf', (gltf) => {
-            Mesh = gltf.scene;
-            scene.add(Mesh);
-            Mesh.position.x = 0;
-            Mesh.position.y = 10;
-            Mesh.position.z = 15;
-        });
-    }
+console.log(b)
+camera.position.set(10,0,0)
 
-    function animate() {
-        requestAnimationFrame(animate);
-        if (Mesh && Mesh.rotation) {
-            Mesh.rotation.y -= 0.005;
-        }
-        renderer.render(scene, camera);
-    }
+  
+var controls = new THREE.OrbitControls( camera,renderer.domElement );
+ 
+const color = 0xFFFFFF;
+const intensity = 10;
+const lightBottom = new THREE.DirectionalLight(color, intensity);
+const lightTop = new THREE.DirectionalLight(color, intensity);
+lightTop.position.set(10, 30, 0);
+lightTop.target.position.set(0, 0, 0);
+lightBottom.position.set(10, -30, 0);
+lightBottom.target.position.set(0, 0, 0);
+scene.add(lightBottom,lightTop);
+scene.add(lightBottom.target,lightTop.target);
 
-    init();
-    setLight();
-    loadGLTF();
-    animate();
+
+
+
+loader.load(path, function ( gltf ) {
+  gltf.scene.position.x=5
+  scene.add( gltf.scene );
+
+  // Render scene after assets have been added
+
+}, function ( xhr ) {
+  console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+ 
+}, function ( error ) {
+  console.log( 'An error happened' , path);
+});
+function animate() {
+  controls.update();
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(animate);
+}
+animate()
 </script>
 {% endblock %}
