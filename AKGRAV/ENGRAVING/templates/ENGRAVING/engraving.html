@@ -12,17 +12,19 @@
 "use strict";
 const loader = new THREE.GLTFLoader();
 const scene = new THREE.Scene();
+var widthW = window.innerWidth/1.5;
+var heightW = window.innerHeight/1.5;
 
 var b = document.querySelector("#canvasForModels");
-const ratio = window.innerWidth / window.innerHeight
+const ratio = widthW / heightW
 const camera = new THREE.PerspectiveCamera( 75, ratio, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer({canvas:b});
 renderer.setClearColor(0x00E7E7E7)
 
 const path = '{% static 'ENGRAVING/models/shotGun.gltf' %}';
 
-
-renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.shadowMapEnabled = true;
+renderer.setSize( widthW, heightW );
 scene.add( new THREE.AxesHelper(500));
 console.log(b);
 camera.position.set(0,0,10);
@@ -30,18 +32,15 @@ camera.position.set(0,0,10);
 var controls = new THREE.OrbitControls( camera,renderer.domElement );
 
 
-
-const light1  = new THREE.DirectionalLight(0xFFFFFF,2);
-const light2  = new THREE.DirectionalLight(0xFFFFFF,2);
-light2.position.set(0,0,-30);
-light2.target.position.set(0,0,0);
-light1.position.set(0,0,30);
-light1.target.position.set(0,0,0);
-scene.add( light1, light1.target,light2,light2.target );
-
-const helper1 = new THREE.DirectionalLightHelper(light1);
-const helper2 = new THREE.DirectionalLightHelper(light2);
-scene.add(helper1,helper2);
+const amlight = new THREE.AmbientLight(0xffffff,1);
+const light1 = new THREE.SpotLight(0xffffff,2);
+const light2 = new THREE.SpotLight(0xffffff,2);
+light2.position.set(0,10,-20);
+light2.castShadow = true;
+light1.position.set(0,10,20);
+light1.castShadow = true;
+scene.add( light1,light2 );
+scene.add(amlight);
 
 
 loader.load(path, function ( gltf ) {
