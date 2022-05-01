@@ -19,33 +19,33 @@ const camera = new THREE.PerspectiveCamera( 75, ratio, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer({canvas:b});
 renderer.setClearColor(0x00E7E7E7)
 
-const path = '{% static 'ENGRAVING/models/quadrocopter.gltf' %}';
+const path = '{% static 'ENGRAVING/models/shotGun.gltf' %}';
 
-camera.lookAt(10,0,0)
+
 renderer.setSize( window.innerWidth, window.innerHeight );
-
-console.log(b)
-camera.position.set(10,0,0)
-
+scene.add( new THREE.AxesHelper(500));
+console.log(b);
+camera.position.set(0,0,10);
   
 var controls = new THREE.OrbitControls( camera,renderer.domElement );
- 
-const color = 0xFFFFFF;
-const intensity = 10;
-const lightBottom = new THREE.DirectionalLight(color, intensity);
-const lightTop = new THREE.DirectionalLight(color, intensity);
-lightTop.position.set(10, 30, 0);
-lightTop.target.position.set(0, 0, 0);
-lightBottom.position.set(10, -30, 0);
-lightBottom.target.position.set(0, 0, 0);
-scene.add(lightBottom,lightTop);
-scene.add(lightBottom.target,lightTop.target);
 
 
+
+const light1  = new THREE.DirectionalLight(0xFFFFFF,2);
+const light2  = new THREE.DirectionalLight(0xFFFFFF,2);
+light2.position.set(0,0,-30);
+light2.target.position.set(0,0,0);
+light1.position.set(0,0,30);
+light1.target.position.set(0,0,0);
+scene.add( light1, light1.target,light2,light2.target );
+
+const helper1 = new THREE.DirectionalLightHelper(light1);
+const helper2 = new THREE.DirectionalLightHelper(light2);
+scene.add(helper1,helper2);
 
 
 loader.load(path, function ( gltf ) {
-  gltf.scene.position.x=5
+  gltf.scene.position.x=0
   scene.add( gltf.scene );
 
   // Render scene after assets have been added
