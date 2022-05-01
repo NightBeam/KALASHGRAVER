@@ -13,12 +13,12 @@
     <header>  
         <div class="topHeader"> 
             <div> 
-                <img id="Logo" src="{% static 'ENGRAVING/image/AKLOGO.png'%}"> 
+                <a href="/engraving"><img id="Logo" src="{% static 'ENGRAVING/image/AKLOGO.png'%}"></a> 
             </div>
             <div>
-                <button id=BL1>
+                <a href="https://kalashnikov.club/?referrer=https://kalashnikov.market/feedback"id=BL1>
                     ВОЙТИ В КЛУБ
-                </button>
+                </a>
             </div>
         </div>
         <div class="bottomHeader"> 
@@ -30,6 +30,22 @@
     <!-- Я с Кириллом -->
     {% endblock %}
     </div>
-    <bottom></bottom> <!-- Максим -->
+    <bottom>
+        <div class="bottom">
+            <div class="contentBottom">
+                <div class="topBottomText">
+                    <p id="OOO">© 2022, ООО «Русское Стрелковое Оружие»</p>
+                </div> 
+                <div class="bottomBottomText">
+                    <ul id="contacts">
+                        <li><a id="elContacts" href="https://kalashnikov.market/static/pdf/terms-of-use.pdf">Пользовательское соглашение</a></li>
+                        <li><a id="elContacts" href="https://kalashnikov.market/contacts">Адреса магазинов</a></li>
+                        <li><a id="elContacts" href="https://kalashnikov.market/feedback">Помощь и поддержка</a></li>
+                    </ul>
+                </div> 
+                <a id="re18L"><img id="re18" src="{% static 'ENGRAVING/image/re18.png'%}"></a>
+            </div>
+        </div>
+    </bottom> <!-- Максим -->
 </body>
 </html>

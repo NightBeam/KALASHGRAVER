@@ -54,28 +54,43 @@ body{
 	background-color: white;
 }
 .bottomHeader{
-	background-color: black;
-	height: 50px;
+	border-bottom: 1px solid black;
+	-webkit-box-shadow: 0px 11px 24px -1px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 0px 11px 24px -1px rgba(34, 60, 80, 0.2);
+	box-shadow: 0px 11px 24px -1px rgba(34, 60, 80, 0.2);
 }
 #Logo{
 	width:100%;
 	height:40px;
 }
 
+
+
 #BL1{
+	position:relative;
 	color:white;
 	background: #D81B1B;
-	background: linear-gradient(116.54deg, #EF0027 10.24%, #FF6C01 105.59%);
-	height: 40px;
-	border-radius: 1px;
-	padding-right: 23px;
-	padding-left: 23px;
+	background: rgb(234,0,44);
+	background: linear-gradient(104deg, rgba(234,0,44,1) 11%, rgba(248,92,31,1) 88%);
+	border-radius: 3px;
+	padding-right: 30px;
+	padding-left: 30px;
+	top:15px;
+	padding-top:15px;
+	padding-bottom:15px;
 	font-weight: bold;
 	font-size: 14px;
 	font-family:DejaVu Sans Mono, monospace;
 }
+#BL1:hover{
+	background: rgb(248,92,31);
+	background: linear-gradient(104deg, rgba(248,92,31,1) 16%, rgba(234,0,44,1) 93%);
+}
 
 /*  work with canvas  */
+
+
+
 .content{
 	margin-top: 60px;
 	margin-left: 120px;
@@ -85,9 +100,77 @@ body{
 	float:left;
 }
 
-.changer_outfit{
+#canvasForModels{
+	-webkit-box-shadow: 0px 11px 24px -1px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 0px 11px 24px -1px rgba(34, 60, 80, 0.2);
+	box-shadow: 0px 11px 24px -1px rgba(34, 60, 80, 0.2);
+	border-radius: 10px;
+}
+
+.changer_weapons{
+	background-color:white;
 	margin-left: 40px;
+	margin-bottom: 40px;
 	float:right;
-	border: 2px solid black;
-	overflow:scroll;
+	border-radius: 10px;
+	overflow-y:scroll;
+	-webkit-box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
+	box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
+}
+
+.changer_outfit{
+	background-color:white;
+	clear:both;
+	height: 150px;
+	border-radius: 10px;
+	overflow-x:scroll;
+	-webkit-box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
+	box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
+}
+
+
+/* bottom */
+#re18L{
+}
+#re18{
+	width:45px;
+	height:40px;
+}
+.bottom{
+	margin-top: 50px;
+	background-color:black;
+}
+.contentBottom{
+	margin-left: 120px;
+	margin-right:120px;
+}
+.topBottomText{
+	padding-top:10px;
+	padding-bottom: 10px;
+}
+.bottomBottomText{
+	padding-top:15px;
+	padding-bottom: 15px;
+}
+#contacts{
+	display:flex;
+}
+#OOO{
+	font-size: 15px;
+	color:white;
+	font-family:DejaVu Sans Mono, monospace;
+}
+#elContacts{
+	transition-duration: 0.1s;
+	font-size: 15px;
+	margin-right: 20px;
+	color:white;
+	font-family:DejaVu Sans Mono, monospace;
+}
+
+#elContacts:hover{
+	transition-duration: 0.1s;
+	color:#D81B1B;
 }
