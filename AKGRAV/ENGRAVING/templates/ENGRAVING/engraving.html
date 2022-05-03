@@ -41,7 +41,7 @@ const camera = new THREE.PerspectiveCamera( 75, ratio, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer({canvas:b});
 renderer.setClearColor(0x00E7E7E7)
 
-const path = '{% static 'ENGRAVING/models/shotGun.gltf' %}';
+const path = '{% static 'ENGRAVING/models/ShotGunNaklejka.gltf' %}';
 
 renderer.shadowMapEnabled = true;
 renderer.setSize( widthW, heightW );
@@ -53,14 +53,16 @@ var controls = new THREE.OrbitControls( camera,renderer.domElement );
 
 
 const amlight = new THREE.AmbientLight(0xffffff,1);
-const light1 = new THREE.SpotLight(0xffffff,2);
-const light2 = new THREE.SpotLight(0xffffff,2);
+const light1 = new THREE.SpotLight(0xffffff,4);
+const light2 = new THREE.SpotLight(0xffffff,4);
 light2.position.set(0,10,-20);
 light2.castShadow = true;
 light1.position.set(0,10,20);
 light1.castShadow = true;
 scene.add( light1,light2 );
 scene.add(amlight);
+
+
 
 
 loader.load(path, function ( gltf ) {

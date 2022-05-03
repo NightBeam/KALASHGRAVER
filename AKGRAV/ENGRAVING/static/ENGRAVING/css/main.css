@@ -133,6 +133,8 @@ body{
 
 /* bottom */
 #re18L{
+	float: right;
+	margin-top:20px;
 }
 #re18{
 	width:45px;
