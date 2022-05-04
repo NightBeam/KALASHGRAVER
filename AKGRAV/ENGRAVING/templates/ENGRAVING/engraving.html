@@ -6,10 +6,21 @@
   <div class="a3D-panel">
       <canvas id="canvasForModels"></canvas>
   </div>
-  <div class="changer_weapons">
-
-  </div>
   <div class="changer_outfit">
+    <div class="block_of_changer_outfit">
+      <ul>
+        <li id="el_of_block_of_changer_outfit">
+          <h3 id="name_of_type_of_changer_outfit">Цвета</h3>
+          <ul>
+            <li id="el_of_changer_outfit">красный</li>
+            <li id="el_of_changer_outfit">синий</li>
+            <li id="el_of_changer_outfit">зеленый</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="changer_weapons">
 
   </div>
 </div>
@@ -23,7 +34,7 @@
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
 <script>
 "use strict";
-let pannelW = document.querySelector(".changer_weapons");
+let pannelW = document.querySelector(".changer_outfit");
 let widthForPannel = window.innerWidth - (300 + (window.innerWidth/1.5));
 let heightForPannel = window.innerHeight/1.5;
 pannelW.style.width = String(widthForPannel) + "px";
