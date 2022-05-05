@@ -69,9 +69,8 @@ body{
 #BL1{
 	position:relative;
 	color:white;
-	background: #D81B1B;
-	background: rgb(234,0,44);
-	background: linear-gradient(104deg, rgba(234,0,44,1) 11%, rgba(248,92,31,1) 88%);
+	background: rgb(228,37,43);
+background: linear-gradient(35deg, rgba(228,37,43,1) 46%, rgba(245,187,54,1) 100%);
 	border-radius: 3px;
 	padding-right: 30px;
 	padding-left: 30px;
@@ -83,12 +82,11 @@ body{
 	font-family:DejaVu Sans Mono, monospace;
 }
 #BL1:hover{
-	background: rgb(248,92,31);
-	background: linear-gradient(104deg, rgba(248,92,31,1) 16%, rgba(234,0,44,1) 93%);
+	background: rgb(245,187,54);
+background: linear-gradient(78deg, rgba(245,187,54,1) 0%, rgba(228,37,43,1) 100%, rgba(228,37,43,1) 100%);
 }
 
 /*  work with canvas  */
-
 
 
 .content{
@@ -120,25 +118,78 @@ body{
 }
 
 .changer_weapons{
+	position: relative;
 	background-color:white;
 	clear:both;
 	height: 150px;
 	border-radius: 10px;
-	overflow-x:scroll;
+	overflow: hidden;
 	-webkit-box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
 	-moz-box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
 	box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
 }
 
+.list_of_weapons{
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+}
+
+.list_of_weapons p{
+	font-size: 40px;
+	margin-left: 200px;
+}
+
+
+
+.switcher{
+	padding-top:45px;
+}
+
+#left_arrow{
+	border-radius: 100px;
+	transition-duration: 0.5s;
+	transform:scale(1,1);
+	width: 60px;
+	position:absolute;
+	left: 25px;
+}
+
+#left_arrow:hover{
+	-webkit-box-shadow: 0px 0px 12px 9px rgba(255, 169, 0, 0.2);
+	-moz-box-shadow: 0px 0px 12px 9px rgba(255, 169, 0, 0.2);
+	box-shadow: 0px 0px 12px 9px rgba(255, 169, 0, 0.2);
+	transition-duration: 0.5s;
+	transform:scale(1.2,1.2);
+}
+
+#right_arrow{
+	border-radius: 100px;
+	transition-duration: 0.5s;
+	transform:scale(1,1);
+	width: 60px;
+	position:absolute;
+	right: 25px;
+}
+#right_arrow:hover{
+	-webkit-box-shadow: 0px 0px 12px 9px rgba(255, 169, 0, 0.2);
+	-moz-box-shadow: 0px 0px 12px 9px rgba(255, 169, 0, 0.2);
+	box-shadow: 0px 0px 12px 9px rgba(255, 169, 0, 0.2);
+	transition-duration: 0.5s;
+	transform:scale(1.2,1.2);
+}
+
+
+
 
 /* bottom */
 #re18L{
 	float: right;
-	margin-top:20px;
+	margin-top:5px;
 }
 #re18{
-	width:45px;
-	height:40px;
+	width:70px;
+	height:70px;
 }
 .bottom{
 	margin-top: 50px;
