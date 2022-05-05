@@ -183,20 +183,18 @@ body{
 #name_of_type_of_changer_outfit{
 	transition-duration: 0.5s;
 	color: black;
-	font-size: 35px;
+	font-size: 30px;
 	font-weight: bold;
 	font-family:DejaVu Sans Mono, monospace;
 }
 #name_of_type_of_changer_outfit:hover{
+	cursor:default;
 	transition-duration: 0.2s;
 	color:#D81B1B;
 }
 
-#name_of_type_of_changer_outfit:hover ~ ul #el_of_changer_outfit{
-	opacity: 1.0;
-}
-
 #el_of_changer_outfit{
+	display: none;
 	opacity: 0.0;
 	transition-duration: 0.5s;
 	color: black;
@@ -206,6 +204,7 @@ body{
 	font-family:DejaVu Sans Mono, monospace;
 }
 #el_of_changer_outfit:hover{
+	cursor:default;
 	transition-duration: 0.2s;
 	color:#D81B1B;
 }

@@ -10,11 +10,19 @@
     <div class="block_of_changer_outfit">
       <ul>
         <li id="el_of_block_of_changer_outfit">
-          <h3 id="name_of_type_of_changer_outfit">Цвета</h3>
+          <h3 id="name_of_type_of_changer_outfit" onclick="ShowElementsCO(0)">Цвета</h3>
           <ul>
             <li id="el_of_changer_outfit">красный</li>
             <li id="el_of_changer_outfit">синий</li>
             <li id="el_of_changer_outfit">зеленый</li>
+          </ul>
+        </li>
+        <li id="el_of_block_of_changer_outfit">
+          <h3 id="name_of_type_of_changer_outfit" onclick="ShowElementsCO(1)">Гравировка</h3>
+          <ul>
+            <li id="el_of_changer_outfit">какая-то</li>
+            <li id="el_of_changer_outfit">какая-то</li>
+            <li id="el_of_changer_outfit">какая-то</li>
           </ul>
         </li>
       </ul>
@@ -32,6 +40,7 @@
 <script type="text/javascript" src="{% static 'ENGRAVING/js/three.js' %}"></script>
 <script type="text/javascript" src="{% static 'ENGRAVING/js/OrbitControls.js' %}"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+<script type="text/javascript" src="{% static 'ENGRAVING/js/main.js' %}"> </script>
 <script>
 "use strict";
 let pannelW = document.querySelector(".changer_outfit");
