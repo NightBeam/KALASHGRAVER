@@ -83,7 +83,7 @@ background: linear-gradient(35deg, rgba(228,37,43,1) 46%, rgba(245,187,54,1) 100
 }
 #BL1:hover{
 	background: rgb(245,187,54);
-background: linear-gradient(78deg, rgba(245,187,54,1) 0%, rgba(228,37,43,1) 100%, rgba(228,37,43,1) 100%);
+	background: linear-gradient(78deg, rgba(245,187,54,1) 0%, rgba(228,37,43,1) 100%, rgba(228,37,43,1) 100%);
 }
 
 /*  work with canvas  */
@@ -129,29 +129,40 @@ background: linear-gradient(78deg, rgba(245,187,54,1) 0%, rgba(228,37,43,1) 100%
 	box-shadow: 0px 0px 24px -5px rgba(34, 60, 80, 0.2);
 }
 
+
+/* list of weapons */
 .list_of_weapons{
 	display: flex;
 	flex-direction: row;
-	text-align: center;
 }
 
-.list_of_weapons p{
-	font-size: 40px;
-	margin-left: 200px;
+.el_of_list_of_weapons{
+	z-index: 1;
+	transition-duration: 0.3s;
+	transform:scale(1.0,1.0);
+	-webkit-box-shadow: 0px 0px 9px 3px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 0px 0px 9px 3px rgba(34, 60, 80, 0.2);
+	box-shadow: 0px 0px 9px 3px rgba(34, 60, 80, 0.2);
+	border-radius: 10px;
+	outline: 5px solid white;
+	overflow: hidden;
+	background-color: #F8F9F9;
+} 
+
+.el_of_list_of_weapons:hover{
+	transition-duration: 0.3s;
+	transform:scale(1.1,1.1);
 }
 
-
-
-.switcher{
-	padding-top:45px;
-}
 
 #left_arrow{
+	top: 45px;
+	position: absolute;
+	z-index: 5;
 	border-radius: 100px;
 	transition-duration: 0.5s;
 	transform:scale(1,1);
 	width: 60px;
-	position:absolute;
 	left: 25px;
 }
 
@@ -164,11 +175,13 @@ background: linear-gradient(78deg, rgba(245,187,54,1) 0%, rgba(228,37,43,1) 100%
 }
 
 #right_arrow{
+	top: 45px;
+	position: absolute;
+	z-index: 5;
 	border-radius: 100px;
 	transition-duration: 0.5s;
 	transform:scale(1,1);
 	width: 60px;
-	position:absolute;
 	right: 25px;
 }
 #right_arrow:hover{

@@ -29,19 +29,14 @@
     </div>
   </div>
   <div class="changer_weapons">
-    <div class="switcher">
-      <img src="{% static 'ENGRAVING/image/left-arrow.png' %}" id="left_arrow">
-      <img src="{% static 'ENGRAVING/image/right-arrow.png' %}" id="right_arrow">
-    </div>
     <div class="list_of_weapons">
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-      <p>8</p>
+      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/shotgun.png' %}"></div>
+      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/darksaber.png' %}"></div>
+      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/banka.png' %}"></div>
+    </div>
+    <div class="switcher">
+      <img src="{% static 'ENGRAVING/image/left-arrow.png' %}" onclick="Previous()" id="left_arrow">
+      <img src="{% static 'ENGRAVING/image/right-arrow.png' %}" onclick="Next()" id="right_arrow">
     </div>
   </div>
 </div>
@@ -54,6 +49,7 @@
 <script type="text/javascript" src="{% static 'ENGRAVING/js/OrbitControls.js' %}"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
 <script type="text/javascript" src="{% static 'ENGRAVING/js/main.js' %}"> </script>
+<script type="text/javascript" src="{% static 'ENGRAVING/js/touchSlider.js' %}"></script>
 <script>
 "use strict";
 let pannelW = document.querySelector(".changer_outfit");
