@@ -31,8 +31,8 @@
   <div class="changer_weapons">
     <div class="list_of_weapons">
       <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/shotgun.png' %}"></div>
-      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/darksaber.png' %}"></div>
-      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/banka.png' %}"></div>
+      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/AK-47.png' %}"></div>
+      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/MakarovPistol.png' %}"></div>
     </div>
     <div class="switcher">
       <img src="{% static 'ENGRAVING/image/left-arrow.png' %}" onclick="Previous()" id="left_arrow">
@@ -70,13 +70,13 @@ const camera = new THREE.PerspectiveCamera( 75, ratio, 0.1, 1000 );
 var renderer = new THREE.WebGLRenderer({canvas:b});
 renderer.setClearColor(0x00E7E7E7)
 
-const path = '{% static 'ENGRAVING/models/ShotGunNaklejka.gltf' %}';
+const path = '{% static 'ENGRAVING/models/ak/ak-47.gltf' %}';
 
 renderer.shadowMapEnabled = true;
 renderer.setSize( widthW, heightW );
 scene.add( new THREE.AxesHelper(500));
 console.log(b);
-camera.position.set(0,0,10);
+camera.position.set(0,0,3);
   
 var controls = new THREE.OrbitControls( camera,renderer.domElement );
 

@@ -15,10 +15,12 @@ let distanceEndStart = distanceExampleTwo / 2
 let count = 0;
 let popravka = (marginTopForlistOfWeapons * 2 * elsListOfWeapons.length);
 let arrayOfWeapons = [];
-listOfWeapons.style.marginTop = marginTopForlistOfWeapons + "px";
 
 for(let i of elsListOfWeapons){
     i.firstChild.style.height = heightForElOfWeapons + "px";
+    i.firstChild.style.width = heightForElOfWeapons * 3 + "px";
+    i.style.marginTop = marginTopForlistOfWeapons + "px";
+    i.style.width = heightForElOfWeapons * 3 + "px";
     arrayOfWeapons.push(i);
     if( count == 0){
         i.style.transitionDuration = '0.0s';
