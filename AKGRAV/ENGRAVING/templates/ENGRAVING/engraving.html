@@ -30,9 +30,9 @@
   </div>
   <div class="changer_weapons">
     <div class="list_of_weapons">
-      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/shotgun.png' %}"></div>
-      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/AK-47.png' %}"></div>
-      <div class="el_of_list_of_weapons"><img src="{% static 'ENGRAVING/image/MakarovPistol.png' %}"></div>
+      <div class="el_of_list_of_weapons" onclick="LoadModel(pathMP)"><img src="{% static 'ENGRAVING/image/shotgun.png' %}"></div>
+      <div class="el_of_list_of_weapons" onclick="LoadModel(pathAK)" ><img src="{% static 'ENGRAVING/image/AK-47.png' %}"></div>
+      <div class="el_of_list_of_weapons" onclick="LoadModel(pathMAKAROV)"><img src="{% static 'ENGRAVING/image/MakarovPistol.png' %}"></div>
     </div>
     <div class="switcher">
       <img src="{% static 'ENGRAVING/image/left-arrow.png' %}" onclick="Previous()" id="left_arrow">
@@ -52,33 +52,36 @@
 <script type="text/javascript" src="{% static 'ENGRAVING/js/touchSlider.js' %}"></script>
 <script>
 "use strict";
+
+const pathAK = '{% static "ENGRAVING/models/ak/ak-47.gltf" %}';
+const pathMP = '{% static "ENGRAVING/models/mp/mp-135.gltf" %}';
+const pathMAKAROV = '{% static "ENGRAVING/models/makarov/pistol_makarov.gltf" %}';
+
+
 let pannelW = document.querySelector(".changer_outfit");
 let widthForPannel = window.innerWidth - (300 + (window.innerWidth/1.5));
 let heightForPannel = window.innerHeight/1.5;
 pannelW.style.width = String(widthForPannel) + "px";
 pannelW.style.height = String(heightForPannel) + "px";
-console.log(heightForPannel);
 
-const loader = new THREE.GLTFLoader();
-const scene = new THREE.Scene();
 var widthW = window.innerWidth/1.5;
 var heightW = window.innerHeight/1.5;
+var canvas = document.querySelector("#canvasForModels");
 
-var b = document.querySelector("#canvasForModels");
-const ratio = widthW / heightW
+const scene = new THREE.Scene();
+const loader = new THREE.GLTFLoader();
+
+
+
+const ratio = widthW / heightW;
 const camera = new THREE.PerspectiveCamera( 75, ratio, 0.1, 1000 );
-var renderer = new THREE.WebGLRenderer({canvas:b});
+var renderer = new THREE.WebGLRenderer({canvas:canvas});
+var controls = new THREE.OrbitControls( camera,renderer.domElement );
 renderer.setClearColor(0x00E7E7E7)
-
-const path = '{% static 'ENGRAVING/models/ak/ak-47.gltf' %}';
-
-renderer.shadowMapEnabled = true;
 renderer.setSize( widthW, heightW );
 scene.add( new THREE.AxesHelper(500));
-console.log(b);
 camera.position.set(0,0,3);
-  
-var controls = new THREE.OrbitControls( camera,renderer.domElement );
+
 
 
 const amlight = new THREE.AmbientLight(0xffffff,1);
@@ -91,26 +94,33 @@ light1.castShadow = true;
 scene.add( light1,light2 );
 scene.add(amlight);
 
+function Loader(loadingFile){
+  loader.load(loadingFile, function ( gltf ) {
+    gltf.scene.position.x=0
+    scene.add( gltf.scene );
+    animate();
 
 
-
-loader.load(path, function ( gltf ) {
-  gltf.scene.position.x=0
-  scene.add( gltf.scene );
-
-  // Render scene after assets have been added
-
-}, function ( xhr ) {
-  console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+    }, function ( xhr ) {
+      console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
  
-}, function ( error ) {
-  console.log( 'An error happened' , path);
-});
+    }, function ( error ) {
+      console.log( 'An error happened' , loadingFile);
+    });
+}
+
+function LoadModel(pathToModel){
+    scene.remove(scene.children[scene.children.length - 1]);
+    Loader(pathToModel);
+}
+
 function animate() {
   controls.update();
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
 }
-animate()
+
+Loader(pathAK);
+
 </script>
 {% endblock %}
