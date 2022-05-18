@@ -11,31 +11,15 @@ let heightForElOfWeapons = (panelHeight * 0.6);
 let marginTopForlistOfWeapons = (panelHeight * 0.4) / 2;
 let distanceExampleOne = (panelWidth / (elsListOfWeapons.length + 1));
 let distanceExampleTwo = (distanceExampleOne / (elsListOfWeapons.length + 1))
-let distanceEndStart = distanceExampleTwo / 2
-let count = 0;
-let popravka = (marginTopForlistOfWeapons * 2 * elsListOfWeapons.length);
+let distanceEndStart = distanceExampleTwo / 2;
 let arrayOfWeapons = [];
 
 for(let i of elsListOfWeapons){
     i.firstChild.style.height = heightForElOfWeapons + "px";
     i.firstChild.style.width = heightForElOfWeapons * 3 + "px";
     i.style.marginTop = marginTopForlistOfWeapons + "px";
-    i.style.width = heightForElOfWeapons * 3 + "px";
-    arrayOfWeapons.push(i);
-    if( count == 0){
-        i.style.transitionDuration = '0.0s';
-        i.style.marginLeft += (distanceEndStart + popravka / 2) + "px";
-    }
-    else if(count == (elsListOfWeapons.length - 1)){
-        i.style.transitionDuration = '0.0s';
-        i.style.marginLeft += distanceExampleTwo + popravka + "px";
-        i.style.marginRight += (distanceEndStart + popravka / 2) + "px";
-    }
-    else{
-        i.style.transitionDuration = '0.0s';
-        i.style.marginLeft += distanceExampleTwo + popravka +  "px";
-    }
-    count++;
+    i.style.transitionDuration = '0.0s';
+    i.style.marginLeft = (panelOfWeapons.clientWidth - (i.clientWidth * elsListOfWeapons.length)) / (elsListOfWeapons.length + 1) + "px";
 }
 
 
@@ -53,17 +37,16 @@ function UpdateDatas(){
     for (let i in arrayOfWeapons){
         if(i == 0){
             elsListOfWeapons[i].style.transitionDuration = '0.0s';
-            elsListOfWeapons[i].style.marginLeft = (distanceEndStart + popravka / 2) + "px";
-            elsListOfWeapons[i].style.marginRight =  '0px';
+            elsListOfWeapons[i].style.marginLeft = (panelOfWeapons.clientWidth - (elsListOfWeapons[i].clientWidth * elsListOfWeapons.length)) / (elsListOfWeapons.length + 1) + "px";
+
         }
         else if(elsListOfWeapons[i] == (elsListOfWeapons.length - 1)){
             elsListOfWeapons[i].style.transitionDuration = '0.0s';
-            elsListOfWeapons[i].style.marginLeft = distanceExampleTwo + popravka + "px";
-            elsListOfWeapons[i].style.marginRight = (distanceEndStart + popravka / 2) + "px";
+            elsListOfWeapons[i].style.marginLeft = (panelOfWeapons.clientWidth - (elsListOfWeapons[i].clientWidth * elsListOfWeapons.length)) / (elsListOfWeapons.length + 1) + "px";
         }
         else{
             elsListOfWeapons[i].style.transitionDuration = '0.0s';
-            elsListOfWeapons[i].style.marginLeft = distanceExampleTwo + popravka +  "px";
+            elsListOfWeapons[i].style.marginLeft = (panelOfWeapons.clientWidth - (elsListOfWeapons[i].clientWidth * elsListOfWeapons.length)) / (elsListOfWeapons.length + 1) + "px";
         }
     }
 }
