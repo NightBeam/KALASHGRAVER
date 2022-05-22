@@ -10,19 +10,11 @@
     <div class="block_of_changer_outfit">
       <ul>
         <li id="el_of_block_of_changer_outfit">
-          <h3 id="name_of_type_of_changer_outfit" onclick="ShowElementsCO(0)">Цвета</h3>
+          <h3 id="name_of_type_of_changer_outfit" onclick="ShowElementsCO(0)">Гравировка</h3>
           <ul>
-            <li id="el_of_changer_outfit">красный</li>
-            <li id="el_of_changer_outfit">синий</li>
-            <li id="el_of_changer_outfit">зеленый</li>
-          </ul>
-        </li>
-        <li id="el_of_block_of_changer_outfit">
-          <h3 id="name_of_type_of_changer_outfit" onclick="ShowElementsCO(1)">Гравировка</h3>
-          <ul>
-            <li id="el_of_changer_outfit">какая-то</li>
-            <li id="el_of_changer_outfit">какая-то</li>
-            <li id="el_of_changer_outfit">какая-то</li>
+            <li id="el_of_changer_outfit" onclick="LoadGrav(pathsAtCravShotGun[0])">Lily</li>
+            <li id="el_of_changer_outfit" onclick="LoadGrav(pathsAtCravShotGun[1])">Rosa</li>
+            <li id="el_of_changer_outfit" onclick="LoadGrav(pathsAtCravShotGun[2])">Leaf</li>
           </ul>
         </li>
       </ul>
@@ -30,9 +22,9 @@
   </div>
   <div class="changer_weapons">
     <div class="list_of_weapons">
-      <div class="el_of_list_of_weapons" onclick="LoadModel(pathMP)"><img src="{% static 'ENGRAVING/image/shotgun.png' %}"></div>
-      <div class="el_of_list_of_weapons" onclick="LoadModel(pathAK)" ><img src="{% static 'ENGRAVING/image/AK-47.png' %}"></div>
-      <div class="el_of_list_of_weapons" onclick="LoadModel(pathMAKAROV)"><img src="{% static 'ENGRAVING/image/MakarovPistol.png' %}"></div>
+      <div class="el_of_list_of_weapons" onclick="LoadModel(pathMP,weaponChanger[1])"><img src="{% static 'ENGRAVING/image/shotgun.png' %}"></div>
+      <div class="el_of_list_of_weapons" onclick="LoadModel(pathAK,weaponChanger[0])" ><img src="{% static 'ENGRAVING/image/AK-47.png' %}"></div>
+      <div class="el_of_list_of_weapons" onclick="LoadModel(pathMAKAROV,weaponChanger[2])"><img src="{% static 'ENGRAVING/image/MakarovPistol.png' %}"></div>
     </div>
     <div class="switcher">
       <img src="{% static 'ENGRAVING/image/left-arrow.png' %}" onclick="Previous()" id="left_arrow">
@@ -52,7 +44,12 @@
 <script type="text/javascript" src="{% static 'ENGRAVING/js/touchSlider.js' %}"></script>
 <script>
 "use strict";
+const pathsAtCravShotGun = ['{% static "ENGRAVING/models/mp/Lily/shotGunGravirovka.glb" %}',
+  '{% static "ENGRAVING/models/mp/Rosa/shotGunGravirovka.glb" %}',
+  '{% static "ENGRAVING/models/mp/Leaf/shotGunGravirovka.glb" %}']; 
 
+var weaponChanger = ['ak', 'mp' , 'makarov'];
+var weaponMain = "ak";
 const pathAK = '{% static "ENGRAVING/models/ak/ak-47.gltf" %}';
 const pathMP = '{% static "ENGRAVING/models/mp/mp-135.gltf" %}';
 const pathMAKAROV = '{% static "ENGRAVING/models/makarov/pistol_makarov.gltf" %}';
@@ -109,9 +106,16 @@ function Loader(loadingFile){
     });
 }
 
-function LoadModel(pathToModel){
+function LoadModel(pathToModel,weapon){
+    scene.remove(scene.children[scene.children.length - 1]);
+    weaponMain = weapon;
+    Loader(pathToModel);
+}
+function LoadGrav(pathToModel){
+  if(weaponMain == 'mp'){
     scene.remove(scene.children[scene.children.length - 1]);
     Loader(pathToModel);
+  }
 }
 
 function animate() {

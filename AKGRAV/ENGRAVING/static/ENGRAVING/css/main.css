@@ -243,7 +243,7 @@ background: linear-gradient(35deg, rgba(228,37,43,1) 46%, rgba(245,187,54,1) 100
 #name_of_type_of_changer_outfit{
 	transition-duration: 0.5s;
 	color: black;
-	font-size: 30px;
+	font-size: 200%;
 	font-weight: bold;
 	font-family:DejaVu Sans Mono, monospace;
 }
