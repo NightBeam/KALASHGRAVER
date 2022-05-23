@@ -239,6 +239,28 @@ background: linear-gradient(35deg, rgba(228,37,43,1) 46%, rgba(245,187,54,1) 100
 
 
 /* changer_outfit */
+.send_weapon{
+	bottom: 20px;
+	position: absolute;
+	left: 35%;
+}
+.changer_outfit{
+	position: relative;
+}
+#button_send_weapon{
+	background: linear-gradient(35deg, rgba(228,37,43,1) 46%, rgba(245,187,54,1) 100%);
+	color:white;
+	font-family: DejaVu Sans Mono, monospace;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 5px;
+}
+#button_send_weapon:hover{
+	background: linear-gradient(78deg, rgba(245,187,54,1) 0%, rgba(228,37,43,1) 100%, rgba(228,37,43,1) 100%);
+}
 
 #name_of_type_of_changer_outfit{
 	transition-duration: 0.5s;

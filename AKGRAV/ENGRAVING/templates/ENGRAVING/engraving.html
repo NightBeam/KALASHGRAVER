@@ -19,6 +19,9 @@
         </li>
       </ul>
     </div>
+    <div class="send_weapon">
+      <button id="button_send_weapon">ЗАКАЗАТЬ</button>
+    </div>
   </div>
   <div class="changer_weapons">
     <div class="list_of_weapons">
@@ -76,7 +79,7 @@ var renderer = new THREE.WebGLRenderer({canvas:canvas});
 var controls = new THREE.OrbitControls( camera,renderer.domElement );
 renderer.setClearColor(0x00E7E7E7)
 renderer.setSize( widthW, heightW );
-scene.add( new THREE.AxesHelper(500));
+//scene.add( new THREE.AxesHelper(500));
 camera.position.set(0,0,3);
 
 
